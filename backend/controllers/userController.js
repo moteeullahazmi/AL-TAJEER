@@ -15,7 +15,7 @@ try{
             return res.json ({success:false, message:"User already exists"})
         }
         const isMatch = await bcrypt.compare(password);
-
+// azmi
         if(isMatch){
             const token = createToken(user._id)
             res.json({success:true, token})
