@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-
+import ScrollToTop from './components/ScrollToTop'
 // page import
 import Home from "../src/pages/Home"
 import Collection from "./pages/Collection"
@@ -24,6 +24,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+    <ScrollToTop/>
     <ToastContainer />
     <Navbar />
     <SearchBar/>
