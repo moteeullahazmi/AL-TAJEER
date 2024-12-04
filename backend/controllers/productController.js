@@ -77,7 +77,7 @@ const removeProduct = async (req, res) => {
   }
 };
 
-// function fro single  product info
+// function for single  product info
 const singleProduct = async (req, res) => {
   try {
     const {productId} = req.body;

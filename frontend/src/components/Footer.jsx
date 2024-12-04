@@ -39,7 +39,7 @@ const Footer = () => {
           Made with ❤️ by Moteeullah Azmi
         </p>
         <p className="py-5 text-sm text-center">
-          Copyright © 2024 AL TAJEER - All Rights Reserved.
+          Copyright © 2024-25 AL TAJEER - All Rights Reserved.
         </p>
       </div>
     </div>
