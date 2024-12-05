@@ -1,69 +1,74 @@
-import orderModel from '../models/oderModel.js'
-import userModel from '../models/userModels.js'
+import orderModel from "../models/oderModel.js";
+import userModel from "../models/userModels.js";
 
 //  Placing Orders using COD method
 const placeOrder = async (req, res) => {
-    try {
-        
-        const { userId, items, amount, address} = req.body;
+  try {
+    const { userId, items, amount, address } = req.body;
 
-        const orderData = {
-            userId,
-            items,
-            address,
-            amount, 
-            paymentMethod : "COD",
-            payment: false,
-            date: Date.now()
-        }
+    const orderData = {
+      userId,
+      items,
+      address,
+      amount,
+      paymentMethod: "COD",
+      payment: false,
+      date: Date.now(),
+    };
 
-        const newOrder =  new orderModel(orderData)
-        await newOrder.save()
+    const newOrder = new orderModel(orderData);
+    await newOrder.save();
 
-        await userModel.findByIdAndUpdate(userId, {cartData:{}})
-        
-        res.json({success:true, message: "Order Placed"})
+    await userModel.findByIdAndUpdate(userId, { cartData: {} });
 
-    } catch (error) {
-        console.log(error);
-        res.json({success:false, message: error.message})
-    }
-}
+    res.json({ success: true, message: "Order Placed" });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
 
 //  Placing Orders using COD method
-const placeOrderStripe = async (req, res) => {
-
-}
+const placeOrderStripe = async (req, res) => {};
 
 //  Placing Orders using COD method
-const placeOrderRazorpay = async (req, res) => {
-
-}
+const placeOrderRazorpay = async (req, res) => {};
 
 // All Orders data for Admin Panel
 const allOrders = async (req, res) => {
-    
-}
+  try {
+    const orders = await orderModel.find({});
+    res.json({ success: true, orders });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
 
 // User Order Data For frontend
-
 const userOrders = async (req, res) => {
-    try {
-        
-        const { userId} = req.body;
+  try {
+    const { userId } = req.body;
 
-        const orders = await orderModel.find({ userId});
+    const orders = await orderModel.find({ userId });
 
-        res.json({success: true, orders})
-    } catch (error) {
-        console.log(error);
-        res.json({success:false, message: error.message})
-    }
-}
+    res.json({ success: true, orders });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
 
 // update order status from Admin Panel
-const updateStatus =  async (req, res)=> {
+const updateStatus = async (req, res) => {
 
-}
+};
 
-export {placeOrder, placeOrderRazorpay, placeOrderStripe, allOrders, userOrders, updateStatus}
+export {
+  placeOrder,
+  placeOrderRazorpay,
+  placeOrderStripe,
+  allOrders,
+  userOrders,
+  updateStatus,
+};
