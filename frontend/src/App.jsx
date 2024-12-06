@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router'
 import ScrollToTop from './components/ScrollToTop'
 // page import
 import Home from "../src/pages/Home"

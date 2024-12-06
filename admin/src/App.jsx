@@ -1,12 +1,16 @@
 import {React,  useEffect,  useState } from 'react'
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import Add from './pages/Add'
 import List from "./pages/List"
 import Orders from "./pages/Orders"
 import Login from './components/Login'
+
+
+// react toastify
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const backendUrl = import.meta.env.VITE_BACKEND_URL
 export const currency = "₹"
