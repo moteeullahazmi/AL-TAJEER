@@ -6,7 +6,7 @@ import { useNavigate } from "react-router";
 import { ShopContext } from "../context/ShopContext";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { currency } from "../../../admin/src/App";
+
 
 function PlaceOrder() {
   const [method, setMethod] = useState("cod");
